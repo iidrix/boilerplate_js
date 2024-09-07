@@ -8,7 +8,7 @@
   },
   "author": "idrix",
   "license": "ISC",
-  "description": "Boilerplate for non-framework projects.",
+  "description": "Boilerplate for non frontend framework projects. Webpack.",
   "devDependencies": {
     "babel-loader": "^9.1.3",
     "clean-webpack-plugin": "^4.0.0",
