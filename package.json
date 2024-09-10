@@ -4,7 +4,8 @@
   "scripts": {
     "prod": "NODE_ENV=production webpack --progress --config webpack.config.prod.js",
     "development": "webpack serve --progress --config webpack.config.dev.js",
-    "dev": "npm run development"
+    "dev": "npm run development",
+    "server": "node --watch app.js"
   },
   "author": "idrix",
   "license": "ISC",
@@ -30,5 +31,9 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0",
     "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
   }
 }
