@@ -2,7 +2,7 @@
   "name": "boilerplate_js",
   "version": "1.0.0",
   "scripts": {
-    "prod": "NODE_ENV=production webpack --progress --config webpack.config.prod.js",
+    "prod": "webpack --progress --config webpack.config.prod.js",
     "development": "webpack serve --progress --config webpack.config.dev.js",
     "dev": "npm run development",
     "server": "node --watch app.js"
@@ -10,6 +10,7 @@
   "author": "idrix",
   "license": "ISC",
   "description": "Boilerplate for non frontend framework projects. Webpack.",
+  "type": "module",
   "devDependencies": {
     "babel-loader": "^9.1.3",
     "clean-webpack-plugin": "^4.0.0",
@@ -33,7 +34,11 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
+    "@prismicio/client": "^7.9.0",
+    "@prismicio/helpers": "^2.3.9",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
   }
 }

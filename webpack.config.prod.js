@@ -1,11 +1,11 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
-const config = require("./webpack.config");
+import path from "path";
+import { merge } from "webpack-merge";
+import config from "./webpack.config.js";
 
-module.exports = merge(config, {
+export default merge(config, {
   mode: "production",
   output: {
-    path: path.join(__dirname, "public"),
+    path: path.resolve("public"), // Use path.resolve for better compatibility
     filename: "[name].[contenthash].js", // Added for proper cache busting
   },
 });

@@ -1,7 +1,13 @@
 <% let content = `
-    <h2>Home Page</h2>
-    <p>Welcome to the home page!</p>
+  <h1>${document.data.collection}</h1> <!-- Render as plain text if it's not a Rich Text field -->
+  ${prismicH.asHTML(document.data.description)} <!-- Assuming description is a Rich Text field -->
 `; %>
 
 <%- include('../template', { content: content }) %>
+
+
+
+
+
+
 

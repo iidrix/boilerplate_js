@@ -1,10 +1,14 @@
-const path = require("path");
-const webpack = require("webpack");
+import path from "path";
+import webpack from "webpack";
+import CopyWebpackPlugin from "copy-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
+import { fileURLToPath } from "url";
 
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+// Simulate __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const IS_DEVELOPMENT = process.env.NODE_ENV === "dev";
 
@@ -13,7 +17,7 @@ const dirShared = path.join(__dirname, "shared");
 const dirStyles = path.join(__dirname, "styles");
 const dirNode = "node_modules";
 
-module.exports = {
+export default {
   entry: [path.join(dirApp, "index.js"), path.join(dirStyles, "index.scss")],
   resolve: {
     modules: [dirApp, dirShared, dirStyles, dirNode],

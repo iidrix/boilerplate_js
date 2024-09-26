@@ -2,6 +2,12 @@ module.exports = {
   extends: ["airbnb", "prettier"],
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": ["error"],
+    "no-console": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };
