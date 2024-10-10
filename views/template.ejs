@@ -36,7 +36,9 @@
     <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
-    <%- include('partials/preloader'); %> <%- include('partials/navigation');
-    %><%- content %>
+    <%- include('partials/preloader'); %> <%- include('partials/header'); %>
+
+    <!-- Dynamic content will be injected here based on the route -->
+    <%- include(content); %> <%- include('partials/footer'); %>
   </body>
 </html>

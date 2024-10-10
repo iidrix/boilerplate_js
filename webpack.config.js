@@ -18,7 +18,7 @@ const dirStyles = path.join(__dirname, "styles");
 const dirNode = "node_modules";
 
 export default {
-  entry: [path.join(dirApp, "index.js"), path.join(dirStyles, "index.scss")],
+  entry: [path.join(dirApp, "index.js"), path.join(dirStyles, "style.scss")],
   resolve: {
     modules: [dirApp, dirShared, dirStyles, dirNode],
   },

@@ -1,6 +1,61 @@
-<% let content = `
-    <h2>About Page</h2>
-    <p>This is the about page where you can learn more about us.</p>
-`; %>
+<main class="about">
+    <div class="about__wrapper">
+        <h1>About Somar</h1>
+        <section class="about__gallery">
+            <div class="about__gallery__wrapper">
+                <% document.data.gallery.forEach((item) => { %>
+                    <figure class="about__gallery__media">
+                        <img class="about__gallery__media__image" src="<%= item.image.url %>" alt="<%= item.image.alt %>" />
+                    </figure>
+                <% }); %>
+            </div>
+        </section>
+        <% document.data.body.forEach((section) => { %>
+            <% if (section.slice_type === "title") { %>
+                <section class="about__title">
+                    <h2><%= section.primary.text %></h2>
+                </section>
+            <% }; %>
+            <% if (section.slice_type === "content") { %>
+                <section class="about__content">
+                    <div class="about__content__wrapper">
+                        <p class="about__content__label"><%= section.primary.label %></p>
+                        <div class="about__content__description">
+                            <%- prismicH.asHTML(section.primary.description) %>
+                        </div>
+                        <figure class="about__content__media">
+                            <img class="about__content__media__image" src="<%= section.primary.image.url %>" alt="<%= section.primary.image.alt %>" />
+                        </figure>
+                    </div>
+                </section>
+            <% }; %>
+            <% if (section.slice_type === "highlight") { %>
+                <section class="about__highlight">
+                    <div class="about__highlight__wrapper">
+                        <% if (section.primary.label) { %>
+                            <p class="about__highlight__label"><%= section.primary.label %></p>
+                        <% }; %>
+                        <h3 class="about__highlight__title"><%= section.primary.title %></h3>
+                        <% section.items.forEach((item) => { %>
+                            <figure class="about__highlight__media">
+                                <img class="about__highlight__media__image" src="<%= item.image.url %>" alt="<%= item.image.alt %>" />
+                            </figure>
+                        <% }); %>
+                    </div>
+                </section>
+            <% }; %>
+            <% if (section.slice_type === "gallery") { %>
+                <section class="about__gallery">
+                    <div class="about__gallery__wrapper">
+                        <% section.items.forEach((item) => { %>
+                            <figure class="about__gallery__media">
+                                <img class="about__gallery__media__image" src="<%= item.image.url %>" alt="<%= item.image.alt %>" />
+                            </figure>
+                        <% }); %>
+                    </div>
+                </section>
+            <% }; %>
+        <% }); %>
+    </div>
+</main>
 
-<%- include('../template', { content: content }) %>

@@ -4,11 +4,13 @@ import { client } from "../config/prismicConfig.js";
 
 const router = express.Router();
 
-router.get("/about", async (req, res) => {
+router.get("/product/:uid", async (req, res) => {
   try {
     // Fetch the 'home' and 'meta' documents simultaneously using Promise.all
     const [document, metaDocument, navigation, preloader] = await Promise.all([
-      client.getSingle("about"), // Fetch 'home' document
+      client.getByUID("product", req.params.uid, {
+        fetchLinks: "collection.title",
+      }), // Fetch 'product' document
       client.getSingle("meta"), // Fetch 'meta' document
       client.getSingle("navigation"), // Fetch 'navigation' document
       client.getSingle("preloader"),
@@ -22,11 +24,11 @@ router.get("/about", async (req, res) => {
     // Define meta information with fallback values from the 'meta' custom type
     const meta = {
       data: {
-        title: metaDocument?.data.title || "Default About Title",
+        title: metaDocument?.data.title || "Default Product Title",
         description:
-          metaDocument?.data.description || "Default About Description",
+          metaDocument?.data.description || "Default Product Description",
         url: `${req.protocol}://${req.get("host")}${req.originalUrl}`,
-        image: metaDocument?.data.image?.url || "/default-home-image.jpg",
+        image: metaDocument?.data.image?.url || "/default-product-image.jpg",
       },
     };
 
@@ -34,13 +36,13 @@ router.get("/about", async (req, res) => {
     res.render("template", {
       meta, // Meta data for SEO
       navigation,
-      content: "pages/about", // Specify the content template to include
+      content: "pages/product", // Specify the content template to include
       document, // Pass the document so it's accessible in the content
       preloader,
       prismicH, // Prismic helpers
     });
   } catch (error) {
-    res.status(500).send("Error loading about page");
+    res.status(500).send("Error loading product page");
   }
 });
 

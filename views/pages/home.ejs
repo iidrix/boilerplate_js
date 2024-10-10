@@ -1,9 +1,23 @@
-<% let content = `
-  <h1>${document.data.collection}</h1> <!-- Render as plain text if it's not a Rich Text field -->
-  ${prismicH.asHTML(document.data.description)} <!-- Assuming description is a Rich Text field -->
-`; %>
-
-<%- include('../template', { content: content }) %>
+<main class="home">
+  <div class="home__wrapper">
+    <div class="home__titles">
+      <% collections.forEach((collection, index) => { %>
+          <div class="home__titles__label">
+              <%= document.data.collection %> <%= index === 0 ? "One" : index === 1 ? "Two" : index === 2 ? "Three" : index === 3 ? "Four" : "" %>
+          </div>
+          <div class="home__titles__title">
+              <%= collection.data.title %>
+          </div>
+      <% }) %>
+    </div>
+    <% document.data.gallery.forEach(item => { %>
+      <figure class="home__gallery__media">
+        <img class="home__gallery__media__image" src="<%= item.image.url %>" alt="<%= item.image.alt %>" />
+    </figure>
+    <% }) %>
+    <a class="home__link" href="<%- Link(document.data.collections) %>"><%= document.data.button %></a>
+  </div>
+</main>
 
 
 

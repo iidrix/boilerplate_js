@@ -1,0 +1,40 @@
+<main class="product">
+  <div class="product__wrapper">
+    <figure class="product__media">
+      <img
+        class="product__media__image"
+        src="<%= document.data.image.url %>"
+        alt="<%= document.data.image.alt %>"
+      />
+    </figure>
+    <div class="product__description">
+      <p class="product__description__category">
+        <%= document.data.collection.data.title %>
+      </p>
+      <h1 class="product__description__title"><%= document.data.title %></h1>
+      <div class="product__description__list">
+        <div class="product__description__iconboxes">
+            <% document.data.iconbox.forEach(item => { %>
+                <div class="product__description__iconbox">
+                    <svg class="product__description__iconbox__icon">
+                        <use xlink:href="sprite-<%= item.iconbox_icon.toLowerCase() %>" />
+                    </svg>
+                    <span class="product__description__iconbox__text"><%= item.iconbox_text %></span>
+                </div>
+            <% }) %>
+        </div>
+        <div class="product__description__textboxes">
+            <% document.data.textbox.forEach(item => { %>
+                <div class="product__description__textbox">
+                    <span class="product__description__textbox__label">
+                        <%= item.textbox_label %>
+                    </span>
+                    <span class="product__description__textbox__text"><%= item.textbox_text %></span>
+                </div>
+            <% }) %>
+        </div>
+      </div>
+      <a href="<%= document.data.link_url.url %>"><%= document.data.link_text %></a>
+    </div>
+  </div>
+</main>

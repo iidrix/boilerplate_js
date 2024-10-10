@@ -1,6 +1,35 @@
-<% let content = `
-    <h2>Collections Page</h2>
-    <p>This is the collections page.</p>
-`; %>
-
-<%- include('../template', { content: content }) %>
+<main class="collections">
+    <div class="collections__wrapper">
+        <div class="collections__titles">
+            <% document.forEach((collection, index) => { %>
+                <div class="collections__titles__label">
+                    <%= homePage.data.collection %> <%= index === 0 ? "One" : index === 1 ? "Two" : index === 2 ? "Three" : index === 3 ? "Four" : "" %>
+                </div>
+                <div class="collections__titles__title">
+                    <%= collection.data.title %>
+                </div>
+            <% }) %>
+        </div>
+        <div class="collections__gallery">
+            <div class="collections__gallery_wrapper">
+                <% document.forEach(collection => { %>
+                    <% collection.data.products.forEach((product) => { %>
+                        <a href="<%= Link(product.item) %>" class="collection__gallery__link">
+                            <figure class="collection__gallery__media">
+                                <img class="collection__gallery__media__image" src="<%= product.item.data.image.url %>" alt="<%= product.item.data.image.alt %>" />
+                            </figure>
+                        </a>
+                    <% }); %>
+                <% }) %>
+            </div>
+        </div>
+        <div class="collections__content">
+            <% document.forEach(collection => { %>
+                <article class="collections__article">
+                    <h2 class="collections__article__title"><%= collection.data.title %> <%= homePage.data.collection %></h2>
+                    <p class="collections__article__description"><%= collection.data.description %></p>
+                </article>
+            <% }) %>
+        </div>
+    </div>
+</main>

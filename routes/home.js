@@ -7,14 +7,26 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     // Fetch the 'home' and 'meta' documents simultaneously using Promise.all
-    const [document, metaDocument] = await Promise.all([
-      client.getSingle("home"), // Fetch 'home' document
-      client.getSingle("meta"), // Fetch 'meta' document
-    ]);
+    const [document, metaDocument, navigation, preloader, collections] =
+      await Promise.all([
+        client.getSingle("home"), // Fetch 'home' document
+        client.getSingle("meta"), // Fetch 'meta' document
+        client.getSingle("navigation"), // Fetch 'navigation' document
+        client.getSingle("preloader"),
+        client.getAllByType("collection", {
+          fetchLinks: "product.image",
+        }), // Fetch 'collection' document
+      ]);
 
     // If the documents don't exist, provide fallback values
-    if (!document || !metaDocument) {
-      throw new Error("Missing home or meta document");
+    if (
+      !document ||
+      !metaDocument ||
+      !navigation ||
+      !preloader ||
+      !collections
+    ) {
+      throw new Error("Missing document");
     }
 
     // Define meta information with fallback values from the 'meta' custom type
@@ -28,8 +40,16 @@ router.get("/", async (req, res) => {
       },
     };
 
-    // Render the home page with document, meta, and Prismic helpers
-    res.render("pages/home", { document, meta, prismicH });
+    // Render the about page with document, meta, and Prismic helpers
+    res.render("template", {
+      meta, // Meta data for SEO
+      navigation,
+      content: "pages/home", // Specify the content template to include
+      document, // Pass the document so it's accessible in the content
+      collections,
+      preloader,
+      prismicH, // Prismic helpers
+    });
   } catch (error) {
     res.status(500).send("Error loading home page");
   }

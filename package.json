@@ -23,6 +23,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "file-loader": "^6.2.0",
     "glslify-loader": "^2.0.0",
+    "include-media": "^2.0.0",
     "mini-css-extract-plugin": "^2.9.1",
     "postcss-loader": "^8.1.1",
     "sass": "^1.78.0",
@@ -36,9 +37,13 @@
   "dependencies": {
     "@prismicio/client": "^7.9.0",
     "@prismicio/helpers": "^2.3.9",
+    "body-parser": "^1.20.3",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
+    "errorhandler": "^1.5.1",
     "express": "^4.19.2",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
     "node-fetch": "^3.3.2"
   }
 }

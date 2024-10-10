@@ -1,8 +1,114 @@
 /*!******************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./styles/index.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./styles/style.scss ***!
   \******************************************************************************************************************************************************/
-.alert {
-  border: 1px solid rgba(128, 0, 128, 0.88);
+/* @mixin placeholder {
+    &.placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+  } */
+.dg.ac {
+  z-index: 99999 !important;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBR0E7RUFDRTtBQUZGLEMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9ib2lsZXJwbGF0ZV9qcy8uL3N0eWxlcy9pbmRleC5zY3NzIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9*/
+@font-face {
+  font-family: "George X";
+  src: url(6335522654d70170ee41.woff2) format("woff2"), url(3d2c19da1ac4186fd02f.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse BP";
+  src: url(211475af97382bc2475c.woff2) format("woff2"), url(0a1976ad04f8ef22add2.woff) format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse BP";
+  src: url(5389e7bde7f0d527dd10.woff2) format("woff2"), url(78b4eabf5c64d40c0344.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse BP";
+  src: url(e551042266eeb3395bc0.woff2) format("woff2"), url(af58e8c96a58b8492898.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  font-family: "Suisse BP";
+  font-size: 16px;
+  font-weight: normal;
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 100px;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBVUE7Ozs7OztLQUFBO0FDVkE7RUFDRTtBQ1FGOztBQ1RBO0VBQ0UsdUJDRWM7RUREZCxvSEFDRTtFQUVGO0VBQ0E7RUFDQTtBRFVGO0FDUEE7RUFDRSx3QkNQZTtFRFFmLG9IQUNFO0VBRUY7RUFDQTtFQUNBO0FET0Y7QUNKQTtFQUNFLHdCQ2pCZTtFRGtCZixvSEFDRTtFQUVGO0VBQ0E7RUFDQTtBRElGO0FDREE7RUFDRSx3QkMzQmU7RUQ0QmYsb0hBQ0U7RUFFRjtFQUNBO0VBQ0E7QURDRjtBR3RDQTs7Q0FBQTtBQUdBOzs7RUFHRTtBSHdDRjs7QUdyQ0E7O0dBQUE7QUFHQTtFQUNFO0FId0NGOztBR3JDQTs7O0dBQUE7QUFJQTtFQUNFO0VBQ0E7QUh3Q0Y7O0FHckNBOztHQUFBO0FBR0E7Ozs7O0VBS0U7RUFDQTtBSHdDRjs7QUdyQ0E7O0dBQUE7QUFHQTs7OztFQUlFO0FId0NGOztBR3JDQTs7R0FBQTtBQUdBOzs7Ozs7O0VBT0U7QUh3Q0Y7O0FJakdBO0VBQ0Usd0JGR2U7RUVGZjtFQUNBO0FKb0dGO0FLZ2VJO0VEdmtCSjtJQU1JO0VKcUdGO0FBQ0YsQyIsInNvdXJjZXMiOlsid2VicGFjazovL2JvaWxlcnBsYXRlX2pzLy4vc3R5bGVzL2Fic3RyYWN0cy9fbWl4aW5zLnNjc3MiLCJ3ZWJwYWNrOi8vYm9pbGVycGxhdGVfanMvLi9zdHlsZXMvYWJzdHJhY3RzL192ZW5kb3JzLnNjc3MiLCJ3ZWJwYWNrOi8vYm9pbGVycGxhdGVfanMvLi9zdHlsZXMvc3R5bGUuc2NzcyIsIndlYnBhY2s6Ly9ib2lsZXJwbGF0ZV9qcy8uL3N0eWxlcy9iYXNlL19mb250cy5zY3NzIiwid2VicGFjazovL2JvaWxlcnBsYXRlX2pzLy4vc3R5bGVzL2Fic3RyYWN0cy9fdmFyaWFibGVzLnNjc3MiLCJ3ZWJwYWNrOi8vYm9pbGVycGxhdGVfanMvLi9zdHlsZXMvYmFzZS9fcmVzZXQuc2NzcyIsIndlYnBhY2s6Ly9ib2lsZXJwbGF0ZV9qcy8uL3N0eWxlcy9iYXNlL19iYXNlLnNjc3MiLCJ3ZWJwYWNrOi8vYm9pbGVycGxhdGVfanMvLi9ub2RlX21vZHVsZXMvaW5jbHVkZS1tZWRpYS9kaXN0L19pbmNsdWRlLW1lZGlhLnNjc3MiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/

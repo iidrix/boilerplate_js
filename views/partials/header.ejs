@@ -1,0 +1,17 @@
+<header>
+  <a href="/" class="logo__link"
+    ><%= meta.data.title %>
+    <svg class="logo__link__icon"></svg>
+  </a>
+  <nav class="navigation">
+    <div class="navigation__wrapper">
+      <ul class="navigation__list">
+        <% navigation.data.list.forEach(item => { %>
+          <li class="navigation__list__item">
+            <a href="<%- Link(item.link) %>" class="navigation__list__link"><%- item.text %></a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </nav>
+</header>
